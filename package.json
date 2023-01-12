@@ -6,7 +6,7 @@
   "scripts": {
     "build": "echo build application",
     "start": "echo start application",
-    "cypress:open": "cypress open",
+    "cypress:open": "cypress open --config-file=cypress.config.js",
     "cypress:run": "cypress run",
     "cypress:record": "cypress run --record --key",
     "test": "cypress run"
