@@ -32,15 +32,8 @@ jobs:
           jq --version
 
           JSON="{\"DT_PROD_ID\":\"fd.live.dynatrace.com\",\"DT_DEV_ID\":\"fd.live.dynatrace.com\",\"DT_PROD_API_TOKEN\":\"hh46456.\"}"
+          echo "PARSE2=$(echo $JSON | jq '.' | tr ':' '=' | tr -d ',')" >> $GITHUB_ENV
 
-          echo $JSON | jq '.'
-
-          JSON=$(echo $JSON | jq '.')
-
-          echo $JSON
-
-          echo 'PARSE2=$(echo $JSON | jq ".")' >> $GITHUB_ENV
-          #echo "PARSE=$JSON" >> $GITHUB_ENV
 
       - name: See variables
         run: |
