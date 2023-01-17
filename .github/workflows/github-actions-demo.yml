@@ -39,7 +39,7 @@ jobs:
 
           echo $JSON
 
-          echo "PARSE2=$(echo $JSON | jq '.')" >> $GITHUB_ENV
+          echo 'PARSE2=$(echo $JSON | jq ".")' >> $GITHUB_ENV
           #echo "PARSE=$JSON" >> $GITHUB_ENV
 
       - name: See variables
