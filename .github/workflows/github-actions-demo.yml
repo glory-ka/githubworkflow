@@ -45,6 +45,7 @@ jobs:
 
       - name: See variables
         run: |
-          echo ${{ env.PARSE2 }}
-          echo ${{ env.PARSE }}
+          bash --verison
+          echo "SECOND PARSE: ${{ env.PARSE2 }}"
+          echo "FIRST PASRSE: ${{ env.PARSE }}"
       
