@@ -35,13 +35,13 @@ jobs:
 
           echo $JSON | jq '. | fromjson'
 
-          JSON=$(echo $JSON | jq 'fromjson')
+          JSON=$(echo $JSON | jq '. | fromjson')
 
           echo $JSON
 
           echo "PARSE=$JSON" >> GITHUB_ENV
 
-          echo "PARSE2=$(echo $JSON | jq 'fromjson')" >> GITHUB_ENV
+          echo "PARSE2=$(echo $JSON | jq '. | fromjson')" >> GITHUB_ENV
 
       - name: See variables
         run: |
