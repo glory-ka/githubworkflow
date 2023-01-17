@@ -16,3 +16,13 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: echo "TEST_VARIABLE='THIS IS ONLY A TEST'" >> $GITHUB_ENV
+
+      - name: Modify github $GITHUB_ENV
+        run: |
+          TEST_VARIABLE={{ env.TEST_VARIABLE }}
+          echo $TEST_VARIABLE
+          echo "TEST_VARIABLE={{ env.TEST_VARIABLE }}_Edited" >> $GITHUB_ENV
+          
+      - name: See variables
+        run: echo {{ env.TEST_VARIABLE }}
