@@ -33,10 +33,10 @@ jobs:
 
           JSON="{\"DT_PROD_ID\":\"fd.live.dynatrace.com\",\"DT_DEV_ID\":\"fd.live.dynatrace.com\",\"DT_PROD_API_TOKEN\":\"hh46456.\"}"
 
-          echo $JSON | jq 'fromjson'
+          echo $JSON | jq '. | fromjson'
 
           JSON=$(echo $JSON | jq 'fromjson')
-          
+
           echo $JSON
 
           echo "PARSE=$JSON" >> GITHUB_ENV
