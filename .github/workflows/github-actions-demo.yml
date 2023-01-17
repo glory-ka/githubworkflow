@@ -32,12 +32,12 @@ jobs:
           jq --version
 
           JSON="{\"DT_PROD_ID\":\"fd.live.dynatrace.com\",\"DT_DEV_ID\":\"fd.live.dynatrace.com\",\"DT_PROD_API_TOKEN\":\"hh46456.\"}"
-          echo "PARSE2=$(echo $JSON | jq '.' | tr ':' '=' | tr -d ',' | tr -d ' ' | tr -d '"')" >> $GITHUB_ENV
+          
+          echo "PARSE=$(echo $JSON | jq '.' | tr ':' '=' | tr -d ',' | tr -d ' ' | tr -d '"')" >> $GITHUB_ENV
 
 
       - name: See variables
         run: |
           bash --version
-          echo "SECOND PARSE: ${{ env.PARSE2 }}"
           echo "FIRST PASRSE: ${{ env.PARSE }}"
       
