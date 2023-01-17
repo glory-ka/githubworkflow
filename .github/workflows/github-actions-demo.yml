@@ -26,3 +26,15 @@ jobs:
 
       - name: See variables
         run: echo ${{ env.TEST_VARIABLE }}
+
+      - name: Test jq and GITHUB_ENV json parsing
+        run:
+          jq --version
+          JSON="{\"DT_PROD_ID\":\"fd.live.dynatrace.com\",\"DT_DEV_ID\":\"fd.live.dynatrace.com\",\"DT_PROD_API_TOKEN\":\"hh46456.\"}"
+          
+          JSON=$(echo $JSON | jq 'fromjson')
+          echo $JSON
+          echo "PARSE=$JSON" >> GITHUB_ENV
+
+          echo "PARSE2=$(echo $JSON | jq 'fromjson')" >> GITHUB_ENV
+
