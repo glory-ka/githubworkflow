@@ -20,9 +20,9 @@ jobs:
 
       - name: Modify github $GITHUB_ENV
         run: |
-          TEST_VARIABLE={{ env.TEST_VARIABLE }}
+          TEST_VARIABLE=${{ env.TEST_VARIABLE }}
           echo $TEST_VARIABLE
-          echo "TEST_VARIABLE={{ env.TEST_VARIABLE }}_Edited" >> $GITHUB_ENV
-          
+          echo "TEST_VARIABLE=${{ env.TEST_VARIABLE }}_Edited" >> $GITHUB_ENV
+
       - name: See variables
-        run: echo {{ env.TEST_VARIABLE }}
+        run: echo ${{ env.TEST_VARIABLE }}
